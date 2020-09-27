@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="A6017011806252" version="0.0.1">
+    <name>viarotel</name>
+    <description>
+ 		Example For APICloud-cli + Vue + Vue-cli3.
+ 	</description>
+    <author email="rotels@qq.com" href="https://github.com/viarotel">
+ 		Marlon
+ 	</author>
+    <content src="./index.html" />
+    <access origin="*" />
+    <!-- userAgent中添加APICloud标识 -->
+    <preference name="userAgent" value="APICloud" />
+    <preference name="urlScheme" value="qingshanscheme" />
+    <preference name="pageBounce" value="false" />
+    <preference name="appBackground" value="rgba(255,255,255,1)" />
+    <preference name="windowBackground" value="rgba(255,255,255,1)" />
+    <preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)" />
+    <preference name="hScrollBarEnabled" value="false" />
+    <preference name="vScrollBarEnabled" value="false" />
+    <preference name="autoLaunch" value="true" />
+    <preference name="fullScreen" value="false" />
+    <preference name="autoUpdate" value="true" />
+    <preference name="smartUpdate" value="false" />
+    <preference name="debug" value="false" />
+    <preference name="statusBarAppearance" value="true" />
+    <preference name="softInputMode" value="resize" />
+    <preference name="appCertificateVerify" value="false" />
+    <preference name="useWKWebView" value="true" />
+    <preference name="forbiddenSchemes" value="*" />
+    <permission name="readPhoneState" />
+    <permission name="camera" />
+    <permission name="record" />
+    <permission name="location" />
+    <permission name="fileSystem" />
+    <permission name="internet" />
+    <permission name="bootCompleted" />
+    <permission name="hardware" />
+    <preference name="querySchemes" value="weixin,wechat,mqq,mqqapi,alipay,alipays,tmall,tbopen,taobao,pinduoduo,openapp.jdmobile,jdpostLogin,mqq,mqqap,weibo,sinaweibo,baidumap,iosamap,meituan,meituanwaimai,imeituan,eleme" />
+    <feature name="alibaichuan">
+        <param name="urlScheme" value="tbopen30331794" />
+    </feature>
+    <feature name="aliPayTradePlus">
+        <param name="urlScheme" value="AliPayTradePlusA6034413412039" />
+    </feature>
+    <feature name="wxPlus">
+        <param name="urlScheme" value="wxedf3611cc993495d" />
+        <param name="apiKey" value="wxedf3611cc993495d" />
+        <param name="apiSecret" value="613381a3fb963929c2ba2a450292596e" />
+        <param name="universalLink" value="https://bjtest.apicloud.com" />
+    </feature>
+    <feature name="wxPayPlus">
+        <param name="urlScheme" value="wxedf3611cc993495d" />
+        <param name="apiKey" value="wxedf3611cc993495d" />
+        <param name="apiSecret" value="613381a3fb963929c2ba2a450292596e" />
+        <param name="universalLink" value="https://bjtest.apicloud.com" />
+    </feature>
+    <feature name="QQPlus">
+        <param name="urlScheme" value="tencent101665512" />
+        <param name="apiKey" value="101665512" />
+    </feature>
+    <feature name="jdapp">
+        <param name="urlScheme" value="sdkbackefa70ddecf261276a4daeb821ba0febd" />
+        <param name="back_id" value="JD2018xxxxxxxxxxx" />
+        <param name="appkey" value="efa70ddecf261276a4daeb821ba0febd" />
+        <param name="secretKey" value="75af93ccf199478db410b9d6c5e71bbe" />
+    </feature>
+    <feature name="ajpush">
+        <param name="app_key" value="2bf00329b44bb4867797f32c" />
+        <param name="channel" value="your channel" />
+    </feature>
+</widget>

@@ -1,0 +1,56 @@
+{
+  "name": "vue-apicloud-multiple",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "wifi-start": "apicloud wifiStart --port 23456",
+    "wifi-stop": "apicloud wifiStop --port 23456",
+    "wifi-sync": "apicloud wifiSync --project ./dist --updateAll false --port 23456",
+    "wifi-log": "apicloud wifiLog --port 23456"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "axios-apicloud-adapter": "^0.1.4",
+    "core-js": "^3.6.5",
+    "crypto-js": "^4.0.0",
+    "js-storages": "^1.1.0",
+    "jsencrypt": "^3.0.0-rc.1",
+    "store": "^2.0.12",
+    "v-clipboard": "^2.2.3",
+    "vant": "^2.10.2",
+    "vue": "^2.6.11",
+    "vue-async-computed": "^3.8.2",
+    "vue-create-api": "^0.2.3",
+    "vue2-perfect-scrollbar": "^1.5.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "apicloud-cli": "^0.2.0",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "cordova-config": "^0.7.0",
+    "klaw-sync": "^6.0.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "os": "^0.1.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "svg-sprite-loader": "^5.0.0",
+    "tailwindcss": "^1.6.1",
+    "tailwindcss-line-clamp": "^1.0.5",
+    "tailwindcss-textshadow": "^2.0.0",
+    "vue-automatic-import-loader": "^1.0.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "last 1 version",
+    "not dead",
+    "android >= 4",
+    "ios >= 8",
+    "> 2%"
+  ]
+}

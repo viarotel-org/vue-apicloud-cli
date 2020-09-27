@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+
+  <title><%= htmlWebpackPlugin.options.name %></title>
+
+  <!-- <link rel="stylesheet" href="css/iconfont.css"> -->
+
+  <% if(process.env.NODE_ENV === 'development') { %>
+  <script src="js/vue.js"></script>
+  <% }else {%>
+  <script src="js/vue.min.js"></script>
+  <% } %>
+
+</head>
+
+<body>
+  <div v-cloak id="app">
+    <page ref="page" />
+  </div>
+</body>
+
+</html>
+
+<script>
+  var isAPICloud = window.navigator.userAgent.indexOf('APICloud') !== -1 || window.location.protocol === 'file:' || true;
+
+  function initVue() {
+    window.vm = new Vue({
+      el: '#app',
+      components: {
+        page: window.pageComponent
+      }
+    });
+  }
+
+  if (isAPICloud) {
+    window.apiready = function () {
+      Vue.prototype.$ac = window.api;
+      initVue();
+    }
+  } else {
+    initVue();
+  }
+
+</script>
