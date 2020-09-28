@@ -1,7 +1,7 @@
 <template>
   <div class="border_t_safe">
-    <div class="">{{ ipStr }}</div>
-    <van-button @click="getIp" type="default">获取当前ip</van-button>
+    <div class="">{{ data }}</div>
+    <van-button @click="getData" type="default">获取数据</van-button>
     <van-button @click="$apiOpenWin('account_login')" type="default"
       >打开login</van-button
     >
@@ -18,14 +18,14 @@ export default {
   data() {
     return {
       topSafeAreaColor: "dark",
-      ipStr: "",
+      data: "",
     };
   },
   created() {},
   methods: {
-    async getIp() {
-      const data = await this.$req.getIp();
-      this.ipStr = data;
+    async getData() {
+      const data = await this.$req.getData();
+      this.data = data;
     },
   },
 };

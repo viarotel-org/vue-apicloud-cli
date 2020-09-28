@@ -8,7 +8,8 @@ export const requestConfig = {
     // toBase64: false //是否采用base64方式编译
   },
   //请求域名
-  url: '/api',
+  // url: process.env.BASE_URL + 'api',
+  url: 'https://api.ipify.org/',
   //超时时间
   timeout: 10000
 };
