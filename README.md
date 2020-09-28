@@ -2,7 +2,7 @@
 
 # vue-APICloud-cli
 
-基于vue的APICloud脚手架
+基于vuecli的多页面APICloud脚手架, ui库使用 vant(已配置全自动按需导入), css 框架使用 tailwindcss(下一代css框架), 请求使用axios的方式(添加了apicloud适配器支持) 
 
 <!-- PROJECT SHIELDS -->
 
@@ -17,37 +17,35 @@
 <br />
 
 <p align="center">
-  <a href="https://www.apicloud.com/img/default.png">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Viarotel/vue-APICloud-cli">
+    <img src="https://img02.sogoucdn.com/app/a/100520146/6a83cc72db890e6c2ed6c749912badaa" alt="viarotel" height="80">
   </a>
-
   <h3 align="center">vue-APICloud-cli</h3>
   <p align="center">
-    基于vue的APICloud脚手架
+    基于vue的多页面APICloud脚手架
     <br />
-    <a href="https://github.com/shaojintian/Best_README_template"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/Viarotel/vue-APICloud-cli"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/shaojintian/Best_README_template">查看Demo</a>
+    <a href="https://github.com/Viarotel/vue-APICloud-cli">查看Demo</a>
     ·
-    <a href="https://github.com/shaojintian/Best_README_template/issues">报告Bug</a>
+    <a href="https://github.com/Viarotel/vue-APICloud-cli/issues">报告Bug</a>
     ·
-    <a href="https://github.com/shaojintian/Best_README_template/issues">提出新特性</a>
+    <a href="https://github.com/Viarotel/vue-APICloud-cli/issues">提出新特性</a>
   </p>
 
+
 </p>
-
-
- 本篇README.md面向开发者
 
 ## 目录
 
 - [上手指南](#上手指南)
-  - [开发前的配置要求](#开发前的配置要求)
-  - [安装步骤](#安装步骤)
+  - [获取本项目](#获取本项目)
+  - [运行本项目](#运行本项目)
+  - [wifi同步](#wifi同步)
+  - [通过vscode插件进行wifi同步](#通过vscode插件进行wifi同步)
+  - [打包构建](#打包构建)
 - [文件目录说明](#文件目录说明)
-- [开发的架构](#开发的架构)
-- [部署](#部署)
 - [使用到的框架](#使用到的框架)
 - [贡献者](#贡献者)
   - [如何参与开源项目](#如何参与开源项目)
@@ -57,121 +55,133 @@
 
 ### 上手指南
 
-请将所有链接中的“shaojintian/Best_README_template”改为“your_github_name/your_repository”
+###### **获取本项目**
 
-
-
-###### 开发前的配置要求
-
-1. xxxxx x.x.x
-2. xxxxx x.x.x
-
-###### **安装步骤**
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. clone 本项目 或 直接下载main包
 
 ```sh
-git clone https://github.com/shaojintian/Best_README_template.git
+git clone https://github.com/viarotel/vue-APICloud-cli.git
 ```
+
+###### 运行本项目
+
+1. 安装依赖
+2. 运行项目
+
+```sh
+npm install //or yarn
+npm run dev //or yarn dev
+```
+
+###### wifi同步
+
+1. 打开调试端口
+2. 查看日志
+3. 输入同一局域网下的电脑ip地址和调试端口同步到手机
+
+```sh
+npm run wifi-start //or yarn wifi-start 打开调试端口
+npm run wifi-log //or yarn wifi-log 打开日志
+npm run wifi-sync //or yarn wifi-sync 同步到手机 需要重新打开一个窗口
+```
+
+###### vscode插件wifi同步
+
+1. vscode 中安装 APIClouid 拓展
+2. 在vscode设置中将APIClouid 拓展 的Subdirectories选项设置为 "/dist"
+3. 运行本项目 并打开当前项目中任意页面 鼠标右键 启动wifi服务 相当于 npm run wifi-start
+4. 鼠标右键 wifi增量同步即可同步 相当于 npm run wifi-sync
+5. 在输出中查看日志
+
+###### 打包构建
+
+1. 使用命令打包项目
+2. 将dist中的文件通过svn或手动压缩为widget.zip上传到APICloud的服务器中
+3. 通过apicloud控制台进行云打包
 
 ### 文件目录说明
 
-eg:
-
 ```
-filetree 
-├── ARCHITECTURE.md
-├── LICENSE.txt
+filetree
+├── /dist
+├── /node_modules
+├── /public/
+│  ├── /js/
+│  │  ├── vue.js
+│  │  └── vue.min.js
+│  ├── /config.xml
+│  ├── /template.html
+├── /src/
+│  ├── /assets/
+│  ├── /components/
+│  ├── /config/
+│  ├── /icons/
+│  ├── /pages/
+│  ├── /plugins/
+│  ├── /request/
+│  ├── /utils/
+├── .gitignore
+├── babel.config.js
+├── jsconfig.json
+├── LICENSE
+├── package.json
+├── postcss.config.js
 ├── README.md
-├── /account/
-├── /bbs/
-├── /docs/
-│  ├── /rules/
-│  │  ├── backend.txt
-│  │  └── frontend.txt
-├── manage.py
-├── /oa/
-├── /static/
-├── /templates/
-├── useless.md
-└── /util/
+├── tailwind.config.js
+├── vue.config.js
+└── yarn.lock
 
 ```
-
-
-
-
-
-### 开发的架构 
-
-请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
-
-### 部署
-
-暂无
 
 ### 使用到的框架
 
-- [xxxxxxx](https://getbootstrap.com)
-- [xxxxxxx](https://jquery.com)
-- [xxxxxxx](https://laravel.com)
+- [Vue-CLI](https://cli.vuejs.org)
+- [Vant](https://vant-contrib.gitee.io/vant)
+- [tailwindcss](https://www.tailwindcss.cn/)
+- [axios](http://www.axios-js.com/)
 
-### 贡献者
+### 关键字
 
-请阅读**CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
-
-#### 如何参与开源项目
-
-贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是**非常感谢**的。
-
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
+- vue
+- apicloud
+- vant
+- tailwindcss
+- axios
 
 ### 版本控制
 
-该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
+该项目使用Git进行版本管理。
 
 ### 作者
 
-xxx@xxxx
+viarotel@qq.com
 
-知乎:xxxx  &ensp; qq:xxxxxx    
+qq:523469508 wx: luyao-ing
 
  *您也可以在贡献者名单中参看所有参与该项目的开发者。*
 
 ### 版权说明
 
-该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt)
+该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/viarotel/vue-APICloud-cli/blob/master/LICENSE.txt)
 
 ### 鸣谢
 
 
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Pages](https://pages.github.com)
-- [Animate.css](https://daneden.github.io/animate.css)
-- [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
+- 感谢[grapewheel/avvw](https://github.com/grapewheel/avvw) 带给我灵感
+- 感谢[axios-apicloud-adapter](https://github.com/F-loat/axios-apicloud-adapter)提供的axios适配器
 
 <!-- links -->
 
-[your-project-path]:shaojintian/Best_README_template
-[contributors-shield]: https://img.shields.io/github/contributors/shaojintian/Best_README_template.svg?style=flat-square
-[contributors-url]: https://github.com/shaojintian/Best_README_template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/shaojintian/Best_README_template.svg?style=flat-square
-[forks-url]: https://github.com/shaojintian/Best_README_template/network/members
-[stars-shield]: https://img.shields.io/github/stars/shaojintian/Best_README_template.svg?style=flat-square
-[stars-url]: https://github.com/shaojintian/Best_README_template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg
-[license-shield]: https://img.shields.io/github/license/shaojintian/Best_README_template.svg?style=flat-square
-[license-url]: https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt
+[your-project-path]:viarotel/vue-APICloud-cli
+[contributors-shield]: https://img.shields.io/github/contributors/viarotel/vue-APICloud-cli.svg?style=flat-square
+[contributors-url]: https://github.com/viarotel/vue-APICloud-cli/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/viarotel/vue-APICloud-cli.svg?style=flat-square
+[forks-url]: https://github.com/viarotel/vue-APICloud-cli/network/members
+[stars-shield]: https://img.shields.io/github/stars/viarotel/vue-APICloud-cli.svg?style=flat-square
+[stars-url]: https://github.com/viarotel/vue-APICloud-cli/stargazers
+[issues-shield]: https://img.shields.io/github/issues/viarotel/vue-APICloud-cli.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/viarotel/vue-APICloud-cli.svg
+[license-shield]: https://img.shields.io/github/license/viarotel/vue-APICloud-cli.svg?style=flat-square
+[license-url]: https://github.com/viarotel/vue-APICloud-cli/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/shaojintian
