@@ -28,7 +28,7 @@
 </html>
 
 <script>
-  var isAPICloud = window.navigator.userAgent.indexOf('APICloud') !== -1 || window.location.protocol === 'file:' || true;
+  var isAPICloud = window.navigator.userAgent.indexOf('APICloud') !== -1 || window.location.protocol === 'file:' || false;
 
   function initVue() {
     window.vm = new Vue({

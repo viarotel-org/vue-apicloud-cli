@@ -95,7 +95,7 @@ service.interceptors.response.use(async response => {
   if (isLoading) {
     clearLoading();
   }
-
+  
   if (!isIntercept) {
     return data;
   }
@@ -139,7 +139,7 @@ service.interceptors.response.use(async response => {
  * @param {object} params 
  * @param {object} options isBody 是否body方式传参 isEncrypt 是否加密 isToken 是否传token isLoading是否显示loading  isIntercept是否自动控制状态 moreOptions更多选项
  */
-export const request = (url, params = {}, { method = 'post', isBody = true, isEncrypt = requestConfig.encrypt.on, isToken = true, isLoading = true, isIntercept = true, isUpload = false, ...moreOptions } = {}) => {
+export const request = (url, params = {}, { method = 'get', isBody = false, isEncrypt = requestConfig.encrypt.on, isToken = true, isLoading = true, isIntercept = true, isUpload = false, ...moreOptions } = {}) => {
 
   if (isUpload) {
     isBody = true;

@@ -2,7 +2,7 @@
 
 # vue-APICloud-cli
 
-基于vuecli的多页面APICloud脚手架, ui库使用 vant(已配置全自动按需导入), css 框架使用 tailwindcss(下一代css框架), 请求使用axios的方式(添加了apicloud适配器支持) 
+基于vuecli的多页面APICloud脚手架, ui库使用 vant(已配置全自动按需导入), css 框架使用 tailwindcss(下一代css框架), 请求使用axios的方式(添加了apicloud适配器支持, 完善了aes+rsa接口加密功能)
 
 <!-- PROJECT SHIELDS -->
 

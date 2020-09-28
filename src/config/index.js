@@ -2,13 +2,13 @@
 export const requestConfig = {
   //加密
   encrypt: {
-    on: true,
-    publicKey: '',
-    iv: '',
-    toBase64: false
+    on: false, //是否开启加密
+    publicKey: '', //公共密钥
+    iv: '', //加密向量
+    // toBase64: false //是否采用base64方式编译
   },
   //请求域名
-  url: '',
+  url: '/api',
   //超时时间
   timeout: 10000
 };

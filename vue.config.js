@@ -25,19 +25,17 @@ module.exports = {
     port,
     hot: true, //false防止开发模式白屏(使用路由缓存时)
     open: false, //编译完成后打开浏览器
-    // proxy: {
-    //   /** 解决本地测试跨域问题 */
-    //   '/api': {
-    //     // target: 'http://applive.meiduoshenghuo.cn/api/',
-    //     target: 'http://47.93.126.153:8082/',
-    //     pathRewrite: {
-    //       '^/api': ''
-    //     }
-    //   }
-    // },
+    proxy: {
+      /** 解决本地测试跨域问题 */
+      '/api': {
+        target: 'https://api.ipify.org/',
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     writeToDisk: file => {
       return /config.xml$/.test(file);
-      // return /index.html$/.test(file) || /config.xml$/.test(file);
     }
   },
 
