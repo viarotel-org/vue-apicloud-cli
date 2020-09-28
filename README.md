@@ -85,7 +85,7 @@ npm run wifi-log //or yarn wifi-log 打开日志
 npm run wifi-sync //or yarn wifi-sync 同步到手机 需要重新打开一个窗口
 ```
 
-###### vscode插件wifi同步
+###### 通过vscode插件进行wifi同步
 
 1. vscode 中安装 APIClouid 拓展
 2. 在vscode设置中将APIClouid 拓展 的Subdirectories选项设置为 "/dist"
