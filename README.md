@@ -11,7 +11,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -179,6 +179,6 @@ qq:523469508 wx: luyao-ing
 [issues-shield]: https://img.shields.io/github/issues/viarotel/vue-APICloud-cli.svg?style=flat-square
 [issues-url]: https://img.shields.io/github/issues/viarotel/vue-APICloud-cli.svg
 [license-shield]: https://img.shields.io/github/license/viarotel/vue-APICloud-cli.svg?style=flat-square
-[license-url]: https://github.com/viarotel/vue-APICloud-cli/blob/master/LICENSE.txt
+[license-url]: https://github.com/viarotel/vue-APICloud-cli/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/shaojintian
+[linkedin-url]: https://linkedin.com/in/viarotel
