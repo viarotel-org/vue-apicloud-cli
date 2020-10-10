@@ -18,7 +18,7 @@
 
 <p align="center">
   <a href="https://github.com/Viarotel/vue-APICloud-cli">
-    <img src="https://img02.sogoucdn.com/app/a/100520146/6a83cc72db890e6c2ed6c749912badaa" alt="viarotel" height="80">
+    <img src="src/assets/img/logo.png" alt="viarotel" height="80">
   </a>
   <h3 align="center">vue-APICloud-cli</h3>
   <p align="center">
@@ -33,9 +33,6 @@
     ·
     <a href="https://github.com/Viarotel/vue-APICloud-cli/issues">提出新特性</a>
   </p>
-
-
-</p>
 
 ## 目录
 
