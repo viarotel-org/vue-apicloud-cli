@@ -600,22 +600,22 @@ export function checkDevice() {
     isAPICloud,
   }
 }
-export const isAndroid = checkDevice().isAndroid;
-export const isIos = checkDevice().isIos;
-export const isPc = checkDevice().isPc;
-export const isAPICloud = checkDevice().isAPICloud;
+export const isAndroid = () => checkDevice().isAndroid;
+export const isIos = () => checkDevice().isIos;
+export const isPc = () => checkDevice().isPc;
+export const isAPICloud = () => checkDevice().isAPICloud;
 
 /**
- * @desc 滚动到顶部
- * @param {string} el 元素的选择器或或者元素本身
+ * @desc 等待该函数执行成功后进行下一步
+ * @param {number}} time 等待的时间
  */
-export function scrollToTop(el = 'body') {
-  const scrollTop = getElement(el).scrollTop;
-  if (scrollTop > 0) {
-    window.requestAnimationFrame(() => scrollToTop(getElement(el)));
-    getElement(el).scrollTop = scrollTop - scrollTop / 8
-  }
-};
+export function wait(time) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, Number(time))
+  })
+}
 
 /**
  * @todo

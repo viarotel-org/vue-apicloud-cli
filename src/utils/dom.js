@@ -121,3 +121,15 @@ export function nodeIndex(el) {
     getElement(el).isSameNode(item)
   );
 };
+
+/**
+ * @desc 滚动到顶部
+ * @param {string} el 元素的选择器或或者元素本身
+ */
+export function scrollToTop(el = 'body') {
+  const scrollTop = getElement(el).scrollTop;
+  if (scrollTop > 0) {
+    window.requestAnimationFrame(() => scrollToTop(getElement(el)));
+    getElement(el).scrollTop = scrollTop - scrollTop / 8
+  }
+};

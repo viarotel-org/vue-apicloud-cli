@@ -1,4 +1,4 @@
-import { isObject, isString, tempImage } from './index.js';
+import { isObject, isString, tempImage, isIos } from './index.js';
 
 /**
  * @desc api 是否存在
@@ -406,18 +406,17 @@ export function apiGetSystemAuth(name) {
               code: 1
             },
             (ret, err) => {
-              // console.log(JSON.stringify(ret));
-              if (isIos) {
-                //回到app时触发 解决ios 授权完成授权状态没有改变的问题
-                apiAddEventListener("resume", (res) => {
-                  apiGetSystemAuth(name);
-                }, { isOnce: true });
+              console.log('requestPermission.ret: ' + JSON.stringify(ret));
+              console.log('requestPermission.err: ' + JSON.stringify(err));
+              //回到app时触发 解决ios 授权完成授权状态没有改变的问题
+              isIos && apiAddEventListener("resume", (res) => {
+                apiGetSystemAuth(name);
+              }, { isOnce: true });
+
+              if (ret.list[0].granted) {
+                resolve();
               } else {
-                if (ret.list[0].granted) {
-                  resolve();
-                } else {
-                  requestPermission(name, '您拒绝了系统权限请求,这样将不能使用相关服务,是否手动开启?');
-                }
+                requestPermission(name, '您拒绝了系统权限请求,这样将不能使用相关服务,是否手动开启?');
               }
             }
           );
