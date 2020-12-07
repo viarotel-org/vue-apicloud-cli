@@ -1,12 +1,5 @@
-/*
-** TailwindCSS Configuration File
-**
-** Docs: https://tailwindcss.com/docs/configuration
-** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
-*/
-
 const colors = {
-  'red': {
+  red: {
     default: 'red',
     '100': '#ffcdd2',
     '200': '#ef9a9a',
@@ -259,98 +252,6 @@ const styleData = function (template, start, end, baseValue = 1, step = 1) {
 };
 
 module.exports = {
-  important: true,
-  prefix: 'tw-',
-  corePlugins: {
-    // preflight: false,
-  },
-  theme: {
-    extend: {
-      colors: {
-        ...colors,
-      },
-      fontSize: {
-        '3xs': '.5rem',
-        '2xs': '.625rem'
-      },
-      flexGrow: {
-        // '2': '2'
-        ...styleData('$:$', 2, 10),
-      },
-      borderRadius: {
-        // 'px-5': '5px'
-        ...styleData('px-$:$px', 5, 25, 1, 5),
-      },
-      spacing: {
-        // 'px-2': '2px',
-        ...styleData('px-$:$px', 2, 10),
-
-        // '1': '0.25rem',
-        ...styleData('$:$rem', 1, 10, 0.25),
-
-        // '12': '3rem'
-        ...styleData('$:$rem', 12, 300, 0.25, 2),
-      },
-      inset: {
-        '1/2': '50%',
-      },
-      backgroundSize: {
-        // 'w-1': '0.25rem auto',
-        ...styleData('w-$:$rem 100%', 1, 10, 0.25),
-        // 'w-12': '3rem auto',
-        ...styleData('w-$:$rem 100%', 12, 100, 0.25, 2),
-
-        // 'h-1': 'auto 0.25rem',
-        ...styleData('h-$:100% $rem', 1, 10, 0.25),
-        // 'h-12': 'auto 3rem'
-        ...styleData('h-$:100% $rem', 12, 100, 0.25, 2),
-
-        'w-full': '100% auto',
-        'h-full': 'auto 100%',
-        'full': '100% 100%',
-      },
-      //字体阴影 text-shadow-xs
-      textShadow: {
-        default: '0 2px 0 #000',
-        xs: '0 0 2px rgba(0, 0, 0, .8)',
-        sm: '0 0 4px rgba(0, 0, 0, .8)',
-        lg: '0 0 6px rgba(0, 0, 0, .8)',
-        xl: '0 0 8px rgba(0, 0, 0, .8)',
-        none: 'none',
-      },
-      //文字截断 .clamp-1
-      lineClamp: {
-        ...styleData('$:$', 1, 5),
-      },
-    }
-  },
-  variants: {
-    lineClamp: ["responsive"],
-    // display: ['responsive', 'hover'],
-    // whitespace: ['responsive'],
-    // wordBreak: ['responsive'],
-  },
-  plugins: [
-    require('tailwindcss-textShadow'),//文字阴影
-    require('tailwindcss-line-clamp'), //文字截断
-  ],
-  purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      "./src/pages/**/*.vue",
-      "./src/components/**/*.vue",
-      './vue.config.js'
-    ],
-    // content: [
-    //   './src/components/**/*.vue',
-    //   './src/views/**/*.vue',
-    //   './vue.config.js'
-    // ],
-    options: {
-      whitelist: ["html", "body", "ol", "ul"],
-      whitelistPatterns: [/^v-/, /^a-/, /^el-/, /^swiper-/],
-      whitelistPatternsChildren: [/^v-/, /^a-/, /^el-/, /^swiper-/, /^token/, /^pre/, /^code/],
-    }
-  }
+  colors,
+  styleData
 }

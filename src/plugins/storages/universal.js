@@ -1,5 +1,3 @@
-// import { JSLocalStorage, JSSessionStorage, JSCookie } from 'js-storages';
-// import { JSLocalStorage } from 'js-storages';
 import store from 'store';
 
 export const storages = store;

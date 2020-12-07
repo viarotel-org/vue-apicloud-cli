@@ -16,4 +16,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+@import "~@/assets/css/tailwind/index.css";
+</style>

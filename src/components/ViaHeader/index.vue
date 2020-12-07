@@ -1,146 +1,145 @@
 <template>
-  <via-element
-    :class="{ border_t_safe: $isAPICloud }"
-    class="via-header flex-shrink-0 border-gray-100"
-    v-bind="{
+  <div
+    class="via-header flex-shrink-0 border-gray-100 border_t_safe"
+    :style="{
       padding,
       background,
-      ...$attrs,
     }"
   >
-    <via-element class="flex justify-center items-center">
-      <via-element
+    <div class="flex justify-center items-center">
+      <div
         v-if="leftGrow != 0"
         @click="$emit('click-left')"
         class="w-1"
-        :flex-grow="leftGrow"
+        :style="{
+          flexGrow: leftGrow,
+        }"
       >
         <slot name="left">
-          <via-element class="flex justify-start items-center">
-            <via-element
+          <div class="flex justify-start items-center">
+            <img
               v-if="leftImage"
-              tag="img"
               :src="leftImage"
-              v-bind="{
+              :style="{
                 width: leftImageWidth || leftImageSize,
                 height: leftImageHeight || leftImageSize,
               }"
               alt
               class="flex-shrink-0 mr-1"
             />
-            <via-element
+            <i
               v-if="leftIcon"
-              tag="i"
-              v-bind="{
+              :style="{
                 fontSize: leftIconSize,
                 color: leftIconColor,
               }"
               :class="leftIcon"
               class="flex-shrink-0 iconfont_common pr-1"
-            ></via-element>
-            <via-element
+            ></i>
+            <div
               v-if="leftText"
-              tag="div"
-              v-bind="{
+              :style="{
                 fontSize: leftTextSize,
                 color: leftTextColor,
               }"
               v-truncate:[leftTextLength]
               class="flex-shrink-0"
-              >{{ leftText }}</via-element
             >
-          </via-element>
+              {{ leftText }}
+            </div>
+          </div>
         </slot>
-      </via-element>
-      <via-element
+      </div>
+      <div
         v-if="grow != 0"
         @click="$emit('click-center')"
         class="w-1"
-        :flex-grow="grow"
+        :style="{
+          flexGrow: grow,
+        }"
       >
         <slot>
-          <via-element class="flex justify-center items-center">
-            <via-element
+          <div class="flex justify-center items-center">
+            <img
               v-if="image"
-              tag="img"
               :src="image"
-              v-bind="{
+              :style="{
                 width: imageWidth || imageSize,
-                height: imageWidth || imageSize,
+                height: imageHeight || imageSize,
               }"
               alt
               class="flex-shrink-0 mr-1"
             />
-            <via-element
+            <i
               v-if="icon"
               tag="i"
-              v-bind="{
+              :style="{
                 fontSize: iconSize,
                 color: iconColor,
               }"
               :class="icon"
               class="flex-shrink-0 iconfont_common pr-1"
-            ></via-element>
-            <via-element
+            ></i>
+            <div
               v-if="title"
-              tag="div"
-              v-bind="{
+              :style="{
                 fontSize: titleSize,
                 color: titleColor,
               }"
               v-truncate:[titleLength]
               class="flex-shrink-0 text-center"
-              >{{ title }}</via-element
             >
-          </via-element>
+              {{ title }}
+            </div>
+          </div>
         </slot>
-      </via-element>
-      <via-element
+      </div>
+      <div
         v-if="rightGrow != 0"
         @click="$emit('click-right')"
         class="w-1"
-        :flex-grow="rightGrow"
+        :style="{
+          flexGrow: rightGrow,
+        }"
       >
         <slot name="right">
-          <via-element class="flex justify-end items-center">
-            <via-element
+          <div class="flex justify-end items-center">
+            <img
               v-if="rightImage"
-              tag="img"
               :src="rightImage"
-              v-bind="{
+              :style="{
                 width: rightImageWidth || rightImageSize,
-                height: rightImageWidth || rightImageSize,
+                height: rightImageHeight || rightImageSize,
               }"
               alt
               class="flex-shrink-0"
             />
-            <via-element
+            <i
               v-if="rightIcon"
-              tag="i"
-              v-bind="{
+              :style="{
                 fontSize: rightIconSize,
                 color: rightIconColor,
               }"
               :class="rightIcon"
               class="flex-shrink-0 iconfont_common pl-1"
-            ></via-element>
-            <via-element
+            ></i>
+            <div
               v-if="rightText"
-              tag="div"
-              v-bind="{
+              :style="{
                 fontSize: rightTextSize,
                 color: rightTextColor,
               }"
               v-truncate:[rightTextLength]
               class="flex-shrink-0 text-right ml-1"
-              >{{ rightText }}</via-element
             >
-          </via-element>
+              {{ rightText }}
+            </div>
+          </div>
         </slot>
-      </via-element>
-    </via-element>
+      </div>
+    </div>
     <slot name="bottom"></slot>
-  </via-element>
+  </div>
 </template>
 
 <script>
@@ -300,15 +299,8 @@ export default {
       default: "white",
     },
     padding: {
-      type: [Object, String],
-      default() {
-        return {
-          top: "0.75rem",
-          bottom: "0.75rem",
-          left: "1rem",
-          right: "1rem",
-        };
-      },
+      type: [String],
+      default: "0.75rem 1rem",
     },
   },
   // computed: {},
@@ -316,3 +308,6 @@ export default {
   // methods: {},
 };
 </script>
+<style>
+@import "~@/assets/css/tailwind/index.css";
+</style>

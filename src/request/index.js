@@ -1,15 +1,20 @@
-import { request } from '@/plugins/axios.js';
-import { requestConfig } from '@/config/index.js';
-const obj = {
-  //获取举报说明
-  getData(params) {
-    return request('', {}, { isIntercept: false });
+import { mapRequest } from "@/plugins/request/index.js";
+import { requestConfig } from "@/config/index.js";
+
+const requestObj = mapRequest([
+  //获取模拟数据
+  {
+    key: "getDemoData",
+    value: "",
+    options: {
+      method: "get",
+    },
   },
-};
+]);
 
 export default {
   install(Vue) {
-    Vue.prototype.$req = obj;
+    Vue.prototype.$req = requestObj;
   },
-  ...obj
+  ...requestObj,
 };

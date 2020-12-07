@@ -1,1 +1,1 @@
-module.exports = require('./src/plugins/tailwind.js');
+module.exports = require("./src/plugins/tailwind");

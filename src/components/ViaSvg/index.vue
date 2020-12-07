@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style>
+@import "~@/assets/css/tailwind/index.css";
 .svg-icon {
   width: 1em;
   height: 1em;

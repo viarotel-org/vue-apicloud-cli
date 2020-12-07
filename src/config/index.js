@@ -2,14 +2,35 @@
 export const requestConfig = {
   //加密
   encrypt: {
-    on: false, //是否开启加密
-    publicKey: '', //公共密钥
-    iv: '', //加密向量
-    // toBase64: false //是否采用base64方式编译
+    on: false,
+    publicKey: "",
+    iv: "",
+    toBase64: false,
   },
   //请求域名
-  // url: process.env.BASE_URL + 'api',
-  url: 'https://api.ipify.org/',
+  // baseUrl: process.env.BASE_URL + "api/",
+  baseUrl: "https://api.ipify.org/",
+  // baseUrl: 'https://ntshop.vmall99.com/api/',
+  // baseUrl: 'http://nt.tenant.vmall99.com/api/',
+  authorization: {
+    // key: "key",
+    // prefix: "",
+    key: "Authorization",
+    prefix: "Bearer ",
+  },
+  //响应成功code值
+  responseSuccessCode: 0,
   //超时时间
-  timeout: 10000
+  timeout: 20000,
+};
+
+//数据字典配置
+export const dictConfig = {
+  //底部导航栏
+  tabberArr: [
+    { dictLabel: "tab-0", dictValue: "home" },
+    { dictLabel: "tab-1", dictValue: "store" },
+    { dictLabel: "tab-2", dictValue: "cart" },
+    { dictLabel: "tab-3", dictValue: "user" },
+  ],
 };

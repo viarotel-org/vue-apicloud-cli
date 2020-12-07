@@ -1,21 +1,12 @@
 <template>
-  <via-element
-    v-bind="{
-      rounded,
-      ...$attrs,
-    }"
-    class="flex flex-wrap"
-  >
+  <div class="flex flex-wrap" :style="roundedMap">
     <slot></slot>
-  </via-element>
+  </div>
 </template>
 
 <script>
 export default {
   name: "ViaGrid",
-  // data() {
-  //   return {};
-  // },
   created() {
     // console.log("via-grid", this);
   },
@@ -35,11 +26,25 @@ export default {
       default: "3",
     },
     rounded: {
-      type: [Object, String],
+      type: [String],
       // default: "",
     },
   },
-  computed: {},
+  provide() {
+    return {
+      parentProps: this.$props,
+    };
+  },
+  computed: {
+    roundedMap() {
+      return {
+        borderRadius: this.rounded,
+      };
+    },
+  },
   methods: {},
 };
 </script>
+<style>
+@import "~@/assets/css/tailwind/index.css";
+</style>

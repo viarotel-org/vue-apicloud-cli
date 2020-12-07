@@ -1,23 +1,24 @@
-const path = require('path');
-const resolve = dir => path.join(__dirname, dir);
+const path = require("path");
+const resolve = (dir) => path.join(__dirname, dir);
 const klawSync = require("klaw-sync");
-const rimraf = require('rimraf');
-const cordovaConfig = require('cordova-config');
-const VueAutomaticImportPlugin = require('vue-automatic-import-loader/lib/plugin');
-const isProduction = process.env.NODE_ENV === 'production';
-const isDevelopment = process.env.NODE_ENV === 'development';
+const rimraf = require("rimraf");
+const cordovaConfig = require("cordova-config");
+const VueAutomaticImportPlugin = require("vue-automatic-import-loader/lib/plugin");
+const isProduction = process.env.NODE_ENV === "production";
+const isDevelopment = process.env.NODE_ENV === "development";
 const host = getLocalIP(); //获取本机IP
 const port = 7777;
-const indexPath = isProduction ? 'index.html' : `http://${host}:${port}`;
+const indexPath = isProduction ? "index.html" : `http://${host}:${port}`;
 
 //dev时删除dist目录防止dev模式wifi同步不必要的文件
-isDevelopment && rimraf(resolve('./dist'), err => {
-  if (err) throw err
-});
+isDevelopment &&
+  rimraf(resolve("./dist"), (err) => {
+    if (err) throw err;
+  });
 
 module.exports = {
   pages: pages(),
-  publicPath: isProduction ? './' : './',
+  publicPath: isProduction ? "./" : "./",
   filenameHashing: isProduction /** 开发环境关闭文件哈希值 */,
   devServer: {
     // 环境配置
@@ -27,43 +28,48 @@ module.exports = {
     open: false, //编译完成后打开浏览器
     // proxy: {
     //   /** 解决本地测试跨域问题 */
-    //   '/api': {
-    //     target: 'https://api.ipify.org/',
+    //   "/api": {
+    //     target: "https://api.ipify.org/",
     //     pathRewrite: {
-    //       '^/api': ''
-    //     }
-    //   }
+    //       "^/api": "",
+    //     },
+    //   },
     // },
-    writeToDisk: file => {
+    writeToDisk: (file) => {
       return /config.xml$/.test(file);
-    }
+    },
   },
 
-
-  transpileDependencies: ['vuetify', 'axios-apicloud-adapter', 'vue-screen', 'vue-tippy', 'lottie-player-vue', 'vue-awesome-swiper'], //指定需要编译的依赖
+  transpileDependencies: [
+    "vuetify",
+    "axios-apicloud-adapter",
+    "vue-screen",
+    "vue-tippy",
+    "lottie-player-vue",
+    "vue-awesome-swiper",
+  ], //指定需要编译的依赖
 
   chainWebpack(config) {
-
     // set svg-sprite-loader
     config.module
-      .rule('svg')
-      .exclude.add(resolve('src/icons'))
-      .end()
+      .rule("svg")
+      .exclude.add(resolve("src/icons"))
+      .end();
     config.module
-      .rule('icons')
+      .rule("icons")
       .test(/\.svg$/)
-      .include.add(resolve('src/icons'))
+      .include.add(resolve("src/icons"))
       .end()
-      .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
+      .use("svg-sprite-loader")
+      .loader("svg-sprite-loader")
       .options({
-        symbolId: 'icon-[name]'
+        symbolId: "icon-[name]",
       })
       .end();
 
     config.optimization.splitChunks(undefined);
 
-    config.plugin("copy").tap(args => {
+    config.plugin("copy").tap((args) => {
       args[0][0].ignore.push(
         process.env.NODE_ENV === "development" ? "vue.min.js" : "vue.js"
       );
@@ -75,36 +81,36 @@ module.exports = {
     output: {
       library: "pageComponent",
       libraryTarget: "window",
-      libraryExport: "default"
+      libraryExport: "default",
     },
     optimization: {
       runtimeChunk: {
-        name: "runtime"
-      }
+        name: "runtime",
+      },
     },
     externals: {
-      vue: "Vue"
+      vue: "Vue",
     },
     plugins: [
       //组件自动按需导入
       new VueAutomaticImportPlugin({
         match(originalTag, { kebabTag, camelTag, path, component }) {
-          if (kebabTag.startsWith('via-')) {
+          if (kebabTag.startsWith("via-")) {
             return [
               camelTag,
-              `import ${camelTag} from '@/components/${camelTag}/index.vue';`
-            ]
+              `import ${camelTag} from '@/components/${camelTag}/index.vue';`,
+            ];
           }
 
-          if (kebabTag.startsWith('van-')) {
+          if (kebabTag.startsWith("van-")) {
             const componentName = kebabTag.slice(4);
             return [
               camelTag,
               `
                 import ${camelTag} from 'vant/lib/${componentName}';
                 import 'vant/lib/${componentName}/style';
-              `
-            ]
+              `,
+            ];
           }
           /**
            * originalTag - the tag as it was originally used in the template
@@ -118,22 +124,23 @@ module.exports = {
           // console.log('camelTag:', camelTag);
           // console.log('path:', path);
           // console.log('component:', component);
-        }
+        },
       }),
       {
         apply: (compiler) => {
-          compiler.hooks.done.tap('done', compilation => {  // 编译完成后做点什么 
-            const configXml = new cordovaConfig('./dist/config.xml'); //根据环境改变config.xml
-            configXml.setElement('content', '', {
-              src: indexPath
+          compiler.hooks.done.tap("done", (compilation) => {
+            // 编译完成后做点什么
+            const configXml = new cordovaConfig("./dist/config.xml"); //根据环境改变config.xml
+            configXml.setElement("content", "", {
+              src: indexPath,
             });
-            configXml.setPreference('debug', isDevelopment);
+            configXml.setPreference("debug", isDevelopment);
             configXml.writeSync();
             // console.log('build done');
           });
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
 
   // css: {
@@ -158,12 +165,16 @@ module.exports = {
  * @desc 获取本地ip地址
  */
 function getLocalIP() {
-  const interfaces = require('os').networkInterfaces();
+  const interfaces = require("os").networkInterfaces();
   for (let devName in interfaces) {
     const iface = interfaces[devName];
     for (let i = 0; i < iface.length; i++) {
       const alias = iface[i];
-      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+      if (
+        alias.family === "IPv4" &&
+        alias.address !== "127.0.0.1" &&
+        !alias.internal
+      ) {
         return alias.address;
       }
     }
@@ -174,18 +185,17 @@ function getLocalIP() {
  * @desc 获取多页面数组
  */
 function pages() {
-
   const tempArr = klawSync("./src/pages", {
     nodir: true,
     traverseAll: true,
     filter(file) {
       return path.extname(file.path) === ".vue";
-    }
+    },
   });
 
   // console.log(tempArr);
 
-  const pagesIndex = resolve('src/pages').length;
+  const pagesIndex = resolve("src/pages").length;
 
   let filename, pageName;
   return tempArr.reduce((obj, { path }) => {
@@ -215,9 +225,9 @@ function pages() {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      }
-    }
+        useShortDoctype: true,
+      },
+    };
 
     return obj;
   }, {});

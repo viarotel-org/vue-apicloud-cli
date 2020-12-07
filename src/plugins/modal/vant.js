@@ -7,10 +7,8 @@ export function dialog(content, { isCancel = false, title = '提示', confirmTex
       title,
       message: content,
       confirmButtonText: confirmText,
-      ...isCancel ? {
-        cancelButtonText: cancelText,
-        showCancelButton: true,
-      } : {},
+      showCancelButton: !!cancelText || isCancel,
+      cancelButtonText: cancelText || '取消',
       ...moreObj,
     })
       .then(() => {

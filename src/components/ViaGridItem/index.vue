@@ -1,27 +1,42 @@
 <template>
-  <via-element
-    @click="$emit('click', index)"
+  <div
+    @click="$emit('click', childElementIndex)"
     class="via-grid-item"
     :style="{
-      marginTop: index + 1 > parent.columnNum ? parent.space : '',
-      marginRight: (index + 1) % parent.columnNum ? parent.space : '',
-      width: `calc(100% / ${parent.columnNum} - ${parent.space} * (${parent.columnNum} - 1) / ${parent.columnNum})`,
+      marginTop:
+        childElementIndex + 1 > parentProps.columnNum ? parentProps.space : '',
+      marginRight:
+        (childElementIndex + 1) % parentProps.columnNum
+          ? parentProps.space
+          : '',
+      width: `calc(100% / ${parentProps.columnNum} - ${parentProps.space} * (${parentProps.columnNum} - 1) / ${parentProps.columnNum})`,
     }"
   >
-    <via-element
-      v-if="parent.square"
+    <div
+      v-if="parentProps.square"
       class="relative"
-      :paddingBottom="parent.square ? '100%' : ''"
+      :style="{
+        paddingBottom: parentProps.square ? '100%' : '',
+      }"
     >
-      <via-element class="absolute inset-0" v-bind="attrsMap">
+      <div
+        class="absolute inset-0"
+        :class="customClass"
+        :style="[roundedMap, customStyle]"
+      >
         <slot></slot>
-      </via-element>
-    </via-element>
+      </div>
+    </div>
 
-    <via-element v-else class="relative" v-bind="attrsMap">
+    <div
+      v-else
+      class="relative"
+      :class="customClass"
+      :style="[roundedMap, customStyle]"
+    >
       <slot> </slot>
-    </via-element>
-  </via-element>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -30,69 +45,51 @@ export default {
   name: "ViaGridItem",
   data() {
     return {
-      parent: findComponentUpward(this, "ViaGrid"),
-      index: 0,
-      num: 0,
+      childElementIndex: 0,
+      childElementCount: 0,
     };
   },
-  created() {
+  inject: ["parentProps"],
+  mounted() {
     // console.log(this);
     this.$nextTick(() => {
-      this.index = nodeIndex(this.$el);
-      this.num = this.$el.parentNode.childElementCount;
+      this.childElementIndex = nodeIndex(this.$el);
+      this.childElementCount = this.$el.parentNode.childElementCount;
     });
   },
-  // props: {},
+  props: {
+    customStyle: {
+      type: [Object],
+      default: () => {},
+    },
+    customClass: {
+      type: [String],
+      default: "",
+    },
+  },
   computed: {
-    attrsMap() {
-      let borderTopLeftRadius = "";
-      let borderTopRightRadius = "";
-      let borderBottomLeftRadius = "";
-      let borderBottomRightRadius = "";
-      if (isObject(this.parent.rounded)) {
-        if (this.parent.rounded.top) {
-          borderTopLeftRadius = this.parent.rounded.top;
-          borderTopRightRadius = this.parent.rounded.top;
-        } else if (this.parent.rounded.bottom) {
-          borderBottomLeftRadius = this.parent.rounded.bottom;
-          borderBottomRightRadius = this.parent.rounded.bottom;
-        } else if (this.parent.rounded.left) {
-          borderTopLeftRadius = this.parent.rounded.left;
-          borderBottomLeftRadius = this.parent.rounded.left;
-        } else if (this.parent.rounded.right) {
-          borderTopRightRadius = this.parent.rounded.right;
-          borderBottomRightRadius = this.parent.rounded.right;
-        }
-      } else {
-        borderTopLeftRadius = this.parent.rounded;
-        borderTopRightRadius = this.parent.rounded;
-        borderBottomLeftRadius = this.parent.rounded;
-        borderBottomRightRadius = this.parent.rounded;
-      }
-      borderTopLeftRadius =
-        this.parent.$attrs["border-top-left-radius"] || borderTopLeftRadius;
-      borderTopRightRadius =
-        this.parent.$attrs["border-top-right-radius"] || borderTopRightRadius;
-      borderBottomLeftRadius =
-        this.parent.$attrs["border-bottom-left-radius"] ||
-        borderBottomLeftRadius;
-      borderBottomRightRadius =
-        this.parent.$attrs["border-bottom-right-radius"] ||
-        borderBottomRightRadius;
+    roundedMap() {
+      const rounded = this.parentProps.rounded;
+
       return {
-        borderTopLeftRadius: this.index === 0 ? borderTopLeftRadius : "",
+        borderTopLeftRadius: this.childElementIndex === 0 ? rounded : "",
         borderTopRightRadius:
-          this.index === this.parent.columnNum - 1 ? borderTopRightRadius : "",
+          this.childElementIndex === this.parentProps.columnNum - 1
+            ? rounded
+            : "",
         borderBottomLeftRadius:
-          this.index === this.num - this.parent.columnNum
-            ? borderBottomLeftRadius
+          this.childElementIndex ===
+          this.childElementCount - this.parentProps.columnNum
+            ? rounded
             : "",
         borderBottomRightRadius:
-          this.index === this.num - 1 ? borderBottomRightRadius : "",
-        ...this.$attrs,
+          this.childElementIndex === this.childElementCount - 1 ? rounded : "",
       };
     },
   },
   methods: {},
 };
 </script>
+<style>
+@import "~@/assets/css/tailwind/index.css";
+</style>
