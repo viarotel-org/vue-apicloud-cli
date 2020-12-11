@@ -157,7 +157,7 @@ qq:523469508 wx: luyao-ing
 
 ### 版权说明
 
-该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/viarotel/vue-APICloud-cli/blob/master/LICENSE.txt)
+该项目签署了MIT 授权许可，详情请参阅 [LICENSE](LICENSE)
 
 ### 鸣谢
 
