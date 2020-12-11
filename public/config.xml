@@ -2,10 +2,10 @@
 <widget id="A6017011806252" version="0.0.1">
     <name>viarotel</name>
     <description>
- 		Example For APICloud-cli + Vue + Vue-cli3.
+ 		Example For vue-APICloud-cli
  	</description>
     <author email="rotels@qq.com" href="https://github.com/viarotel">
- 		Marlon
+ 		viarotel
  	</author>
     <content src="./index.html" />
     <access origin="*" />
