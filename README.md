@@ -84,7 +84,7 @@ npm run wifi-sync //or yarn wifi-sync 同步到手机 需要重新打开一个�
 
 1. vscode 中安装 APIClouid 拓展
 2. 在vscode设置中将APIClouid 拓展 的Subdirectories选项设置为 "/dist"
-3. 运行本项目 并打开当前项目中任意页面 鼠标右键 启动wifi服务 相当于 npm run wifi-start
+3. 运行本项目 并打开当前项目中任意页面 鼠标右键 启动wifi服务 然后在手机loader应用中输入控制台显示的ip地址和端口号(**注意必须在同一局域网下**) 相当于 npm run wifi-start
 4. 鼠标右键 wifi增量同步即可同步 相当于 npm run wifi-sync
 5. 在输出中查看日志
 
