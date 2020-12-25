@@ -1,0 +1,13 @@
+html,
+body {
+  font-size: 14px;
+  @apply overflow-x-hidden;
+}
+
+svg {
+  @apply inline-block align-baseline;
+}
+
+button:focus {
+  @apply outline-none;
+}

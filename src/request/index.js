@@ -1,5 +1,5 @@
 import { mapRequest } from "@/plugins/request/index.js";
-import { requestConfig } from "@/config/index.js";
+// import { requestConfig } from "@/config/index.js";
 
 const requestObj = mapRequest([
   //获取模拟数据

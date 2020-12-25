@@ -1,6 +1,6 @@
 
 
-# vue-APICloud-cli
+# vue-apicloud-cli
 
 基于vuecli的多页面APICloud脚手架, ui库使用 vant(已配置全自动按需导入), css 框架使用 tailwindcss(下一代css框架), 请求使用axios的方式(添加了apicloud适配器支持, 完善了aes+rsa接口加密功能)
 
@@ -55,7 +55,7 @@
 1. clone 本项目 或 直接下载main包
 
 ```sh
-git clone https://github.com/viarotel/vue-APICloud-cli.git
+git clone https://github.com/viarotel/vue-apicloud-cli.git
 ```
 
 ###### 运行本项目
@@ -65,7 +65,7 @@ git clone https://github.com/viarotel/vue-APICloud-cli.git
 
 ```sh
 npm install //or yarn
-npm run dev //or yarn dev
+npm run serve //or yarn serve
 ```
 
 ###### wifi同步

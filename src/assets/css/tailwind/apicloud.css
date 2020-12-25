@@ -1,0 +1,65 @@
+html,
+body {
+  -webkit-touch-callout: none; /*禁用系统默认菜单*/
+  -webkit-text-size-adjust: none; /*禁止移动端 文字缩放*/
+  -webkit-tap-highlight-color: transparent; /*重置ios点击灰色背景*/
+  -webkit-user-select: none; /*禁止选中文字*/
+  font-size: 14px;
+}
+
+input {
+  outline: none !important;
+  -webkit-appearance: none; /*去除ios阴影*/
+}
+
+/* 解决使用有赞下拉刷新组件,sticky无效的问题 */
+.van-pull-refresh {
+  overflow: initial !important;
+}
+
+img {
+  position: relative;
+}
+img::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  /* background-color: #e0e0e0; */
+  background: #e0e0e0 url("~@/assets/images/temp-image.png") center / 60%
+    no-repeat;
+}
+
+/* 安全区 */
+:root {
+  --env-safe-area-inset-top: env(safe-area-inset-top);
+  --env-safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --constant-safe-area-inset-top: constant(safe-area-inset-top);
+  --constant-safe-area-inset-bottom: constant(safe-area-inset-bottom);
+}
+
+.border-t-safe {
+  border-top: 25px solid transparent;
+}
+@supports (
+  (border: env(safe-area-inset-top)) or (border: constant(safe-area-inset-top))
+) {
+  .border-t-safe {
+    border-top: max(
+        var(--env-safe-area-inset-top, var(--constant-safe-area-inset-top)),
+        25px
+      )
+      solid transparent;
+  }
+}
+
+.border-b-safe {
+  border-bottom: var(
+      --env-safe-area-inset-bottom,
+      var(--constant-safe-area-inset-bottom)
+    )
+    solid transparent;
+}

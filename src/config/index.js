@@ -8,10 +8,7 @@ export const requestConfig = {
     toBase64: false,
   },
   //请求域名
-  // baseUrl: process.env.BASE_URL + "api/",
-  baseUrl: "https://api.ipify.org/",
-  // baseUrl: 'https://ntshop.vmall99.com/api/',
-  // baseUrl: 'http://nt.tenant.vmall99.com/api/',
+  baseUrl: process.env.BASE_URL + "api/",
   authorization: {
     // key: "key",
     // prefix: "",

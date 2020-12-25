@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 纵向平滑滚动 */
+.overflow-y-scroll-smooth {
+  @apply overflow-y-scroll scrolling-touch static;
+}
+
+/* 横向平滑滚动 */
+.overflow-x-scroll-smooth {
+  @apply overflow-x-scroll scrolling-touch static;
+}
+
+/*宽高等比*/
+.wh-const::before {
+  content: "";
+  padding-top: 100%;
+  float: left;
+}
+.wh-const::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 隐藏滚动条 */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* 文字渐变 */
+.bg-clip-text {
+  -webkit-background-clip: text;
+}
+
+/*高斯模糊*/
+.backdrop-filter-blur-px-5 {
+  backdrop-filter: blur(5px);
+}
+
+/*vue 渲染完成后显示*/
+[v-cloak] {
+  display: none !important;
+}
