@@ -17,21 +17,21 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/Viarotel/vue-APICloud-cli">
+  <a href="https://github.com/Viarotel/vue-apicloud-cli">
     <img src="src/assets/img/logo.png" alt="viarotel" height="80">
   </a>
-  <h3 align="center">vue-APICloud-cli</h3>
+  <h3 align="center">vue-apicloud-cli</h3>
   <p align="center">
     基于vue的多页面APICloud脚手架
     <br />
-    <a href="https://github.com/Viarotel/vue-APICloud-cli"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/Viarotel/vue-apicloud-cli"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Viarotel/vue-APICloud-cli">查看Demo</a>
+    <a href="https://github.com/Viarotel/vue-apicloud-cli">查看Demo</a>
     ·
-    <a href="https://github.com/Viarotel/vue-APICloud-cli/issues">报告Bug</a>
+    <a href="https://github.com/Viarotel/vue-apicloud-cli/issues">报告Bug</a>
     ·
-    <a href="https://github.com/Viarotel/vue-APICloud-cli/issues">提出新特性</a>
+    <a href="https://github.com/Viarotel/vue-apicloud-cli/issues">提出新特性</a>
   </p>
 
 ## 目录
@@ -167,16 +167,16 @@ qq:523469508 wx: luyao-ing
 
 <!-- links -->
 
-[your-project-path]:viarotel/vue-APICloud-cli
-[contributors-shield]: https://img.shields.io/github/contributors/viarotel/vue-APICloud-cli.svg?style=flat-square
-[contributors-url]: https://github.com/viarotel/vue-APICloud-cli/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/viarotel/vue-APICloud-cli.svg?style=flat-square
-[forks-url]: https://github.com/viarotel/vue-APICloud-cli/network/members
-[stars-shield]: https://img.shields.io/github/stars/viarotel/vue-APICloud-cli.svg?style=flat-square
-[stars-url]: https://github.com/viarotel/vue-APICloud-cli/stargazers
-[issues-shield]: https://img.shields.io/github/issues/viarotel/vue-APICloud-cli.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/viarotel/vue-APICloud-cli.svg
-[license-shield]: https://img.shields.io/github/license/viarotel/vue-APICloud-cli.svg?style=flat-square
-[license-url]: https://github.com/viarotel/vue-APICloud-cli/blob/master/LICENSE
+[your-project-path]:viarotel/vue-apicloud-cli
+[contributors-shield]: https://img.shields.io/github/contributors/viarotel/vue-apicloud-cli.svg?style=flat-square
+[contributors-url]: https://github.com/viarotel/vue-apicloud-cli/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/viarotel/vue-apicloud-cli.svg?style=flat-square
+[forks-url]: https://github.com/viarotel/vue-apicloud-cli/network/members
+[stars-shield]: https://img.shields.io/github/stars/viarotel/vue-apicloud-cli.svg?style=flat-square
+[stars-url]: https://github.com/viarotel/vue-apicloud-cli/stargazers
+[issues-shield]: https://img.shields.io/github/issues/viarotel/vue-apicloud-cli.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/viarotel/vue-apicloud-cli.svg
+[license-shield]: https://img.shields.io/github/license/viarotel/vue-apicloud-cli.svg?style=flat-square
+[license-url]: https://github.com/viarotel/vue-apicloud-cli/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/viarotel
