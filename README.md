@@ -143,6 +143,10 @@ filetree
 - tailwindcss
 - axios
 
+### 常见问题
+
+- 无法同步到设备 需要更改 public/config.xml文件中的widget.id 为对应的apicloud loader所对应的id 如果使用[官方Loader](https://docs.apicloud.com/Download/download)可忽略
+
 ### 版本控制
 
 该项目使用Git进行版本管理。
