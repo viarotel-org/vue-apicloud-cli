@@ -10,7 +10,7 @@
       <via-grid-item
         v-for="(i, iIndex) in 9"
         :key="iIndex"
-        customClass="bg-red"
+        custom-class="bg-red"
         >{{ i }}</via-grid-item
       >
     </via-grid>
@@ -20,7 +20,6 @@
 
 <script>
 import { mixinApicloud } from "@/utils";
-import { dialog, loading, toast } from "@/plugins/modal";
 import request from "@/request";
 Vue.use(request);
 export default {
