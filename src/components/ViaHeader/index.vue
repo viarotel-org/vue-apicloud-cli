@@ -1,6 +1,6 @@
 <template>
   <div
-    class="via-header flex-shrink-0 border-gray-100 border_t_safe"
+    class="via-header flex-shrink-0 border-gray-100 border-t-safe"
     :style="{
       padding,
       background,

@@ -1,5 +1,5 @@
 <template>
-  <div class="border_t_safe">
+  <div class="border-t-safe">
     <div class="">{{ data }}</div>
     <van-button @click="getData" type="default">获取数据</van-button>
     <van-button @click="$apiOpenWin('account_login')" type="default"
